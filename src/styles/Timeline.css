@@ -53,7 +53,7 @@
   font-weight: 600;
   color: var(--color-tertiary);
   text-shadow: 0 0 5px rgba(0, 217, 255, 0.5);
-  font-family: "Courier New", monospace;
+  font-family: "Proxima Nova", sans-serif;
 }
 
 .timeline-hour-events {

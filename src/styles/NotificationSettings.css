@@ -9,7 +9,7 @@
   box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.5),
     0 0 40px rgba(0, 170, 255, 0.2);
-  font-family: "Courier New", monospace;
+  font-family: "Proxima Nova", sans-serif;
   color: #e0e0e0;
 }
 
@@ -91,7 +91,7 @@
   padding: 8px 16px;
   border: 1px solid;
   border-radius: 6px;
-  font-family: "Courier New", monospace;
+  font-family: "Proxima Nova", sans-serif;
   font-size: 13px;
   font-weight: bold;
   cursor: pointer;
@@ -231,7 +231,7 @@
   padding: 10px 16px;
   border: 1px solid;
   border-radius: 6px;
-  font-family: "Courier New", monospace;
+  font-family: "Proxima Nova", sans-serif;
   font-size: 13px;
   font-weight: bold;
   cursor: pointer;
@@ -246,7 +246,7 @@
   border: 1px solid #00aaff;
   border-radius: 6px;
   color: #00aaff;
-  font-family: "Courier New", monospace;
+  font-family: "Proxima Nova", sans-serif;
   font-size: 13px;
   font-weight: bold;
   cursor: pointer;

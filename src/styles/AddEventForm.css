@@ -40,7 +40,7 @@
   border-radius: 4px;
   color: var(--color-text-primary);
   padding: 0.5rem 0.75rem;
-  font-family: "Courier New", monospace;
+  font-family: "Proxima Nova", sans-serif;
   font-size: 0.9rem;
   transition: all var(--transition-fast);
 }

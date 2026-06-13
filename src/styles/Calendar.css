@@ -8,7 +8,7 @@
   border: 1px solid rgba(0, 170, 255, 0.2);
   border-radius: 12px;
   backdrop-filter: blur(10px);
-  font-family: "Courier New", monospace;
+  font-family: "Proxima Nova", sans-serif;
   color: #e0e0e0;
 }
 
@@ -45,7 +45,7 @@
   border: 1px solid #00aaff;
   border-radius: 6px;
   color: #00aaff;
-  font-family: "Courier New", monospace;
+  font-family: "Proxima Nova", sans-serif;
   font-size: 13px;
   font-weight: bold;
   cursor: pointer;
@@ -71,7 +71,7 @@
   border: 1px solid #00ff88;
   border-radius: 6px;
   color: #00ff88;
-  font-family: "Courier New", monospace;
+  font-family: "Proxima Nova", sans-serif;
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
@@ -283,7 +283,7 @@
   border: 1px solid #00ff88;
   border-radius: 6px;
   color: #00ff88;
-  font-family: "Courier New", monospace;
+  font-family: "Proxima Nova", sans-serif;
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;

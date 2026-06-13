@@ -25,7 +25,7 @@
   animation: slideInRight 0.3s ease-out;
   pointer-events: auto;
   font-size: 14px;
-  font-family: "Courier New", monospace;
+  font-family: "Proxima Nova", sans-serif;
   color: #e0e0e0;
   justify-content: space-between;
 }
@@ -167,7 +167,7 @@
   color: #00aaff;
   padding: 6px 12px;
   border-radius: 4px;
-  font-family: "Courier New", monospace;
+  font-family: "Proxima Nova", sans-serif;
   font-size: 12px;
   cursor: pointer;
   transition: all 0.2s;
