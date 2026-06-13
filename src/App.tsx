@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { DailyView } from "./components/DailyView";
 import { CalendarView } from "./components/CalendarView";
+import { StatisticsPanel } from "./components/StatisticsPanel";
 import { NotificationContainer } from "./components/NotificationContainer";
 import { NotificationSettings } from "./components/NotificationSettings";
 import { useEvents } from "./hooks/useEvents";
 import "./styles/App.css";
 
 // FORCE RELOAD - v2.0
-type ViewType = "calendar" | "daily";
+type ViewType = "calendar" | "daily" | "dashboard";
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewType>("calendar");
@@ -66,6 +67,13 @@ function App() {
         </div>
         <div className="view-toggle">
           <button
+            className={`view-btn ${currentView === "dashboard" ? "active" : ""}`}
+            onClick={() => setCurrentView("dashboard")}
+            title="Dashboard View"
+          >
+            📊 Dashboard
+          </button>
+          <button
             className={`view-btn ${currentView === "calendar" ? "active" : ""}`}
             onClick={() => setCurrentView("calendar")}
             title="Calendar View"
@@ -90,7 +98,9 @@ function App() {
       </div>
 
       <div className="app-content">
-        {currentView === "calendar" ? (
+        {currentView === "dashboard" ? (
+          <StatisticsPanel events={events} />
+        ) : currentView === "calendar" ? (
           <CalendarView
             events={events}
             onDateSelect={handleDateSelect}
