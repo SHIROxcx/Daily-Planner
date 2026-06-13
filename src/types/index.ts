@@ -8,6 +8,7 @@ export interface Event {
   completed: boolean;
   date: string; // YYYY-MM-DD format
   isImportant?: boolean; // Optional flag for important/priority events
+  reminderMinutes?: number[]; // Optional custom reminder offsets for this event
 }
 
 export interface TimeBlock {

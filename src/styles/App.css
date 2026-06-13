@@ -117,6 +117,12 @@
   min-height: 0;
 }
 
+.dashboard-view {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 /* Daily View Wrapper */
 .daily-view-wrapper {
   display: flex;

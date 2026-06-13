@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { DailyView } from "./components/DailyView";
 import { CalendarView } from "./components/CalendarView";
 import { StatisticsPanel } from "./components/StatisticsPanel";
+import { UpcomingEventsPanel } from "./components/UpcomingEventsPanel";
 import { NotificationContainer } from "./components/NotificationContainer";
 import { NotificationSettings } from "./components/NotificationSettings";
 import { useEvents } from "./hooks/useEvents";
+import { Event } from "./types";
 import "./styles/App.css";
 
 // FORCE RELOAD - v2.0
@@ -57,6 +59,11 @@ function App() {
     setCurrentView("calendar");
   };
 
+  const handleUpcomingEdit = (event: Event) => {
+    setSelectedDate(event.date);
+    setCurrentView("daily");
+  };
+
   return (
     <div className="app">
       <NotificationContainer />
@@ -99,7 +106,14 @@ function App() {
 
       <div className="app-content">
         {currentView === "dashboard" ? (
-          <StatisticsPanel events={events} />
+          <div className="dashboard-view">
+            <StatisticsPanel events={events} />
+            <UpcomingEventsPanel
+              events={events}
+              onUpdateEvent={updateEvent}
+              onEditEvent={handleUpcomingEdit}
+            />
+          </div>
         ) : currentView === "calendar" ? (
           <CalendarView
             events={events}

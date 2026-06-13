@@ -100,7 +100,11 @@ export const useSystemNotifications = (events: Event[]) => {
           (eventTime.getTime() - now.getTime()) / 60000,
         );
 
-        settings.reminderMinutes.forEach((reminderMinute) => {
+        const reminderMinutes = [
+          ...new Set([...(event.reminderMinutes ?? []), ...settings.reminderMinutes]),
+        ].sort((a, b) => b - a);
+
+        reminderMinutes.forEach((reminderMinute) => {
           if (minutesUntilEvent === reminderMinute) {
             const reminderId = `${event.id}-${reminderMinute}`;
 
