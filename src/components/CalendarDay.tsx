@@ -32,7 +32,11 @@ export const CalendarDay: React.FC<CalendarDayProps> = ({
     >
       <div className="calendar-day-header">
         <span className="calendar-day-number">{day.dayOfMonth}</span>
-        {day.hasImportant && <span className="important-indicator">★</span>}
+        {day.hasImportant && (
+          <span className="important-indicator" title="Has important event">
+            ✦
+          </span>
+        )}
       </div>
 
       {day.eventCount > 0 && (

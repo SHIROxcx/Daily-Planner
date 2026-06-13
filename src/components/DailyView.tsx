@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ChevronLeft, ChevronRight, Bell } from "lucide-react";
 import { Event } from "../types";
 import { Timeline } from "./Timeline";
 import { AddEventForm } from "./AddEventForm";
@@ -83,7 +84,7 @@ export const DailyView: React.FC<DailyViewProps> = ({
             onClick={handlePreviousDay}
             title="Previous day"
           >
-            ◀
+            <ChevronLeft size={20} />
           </button>
           <div className="date-display">
             <h1 className="date-title">{formatDisplayDate(selectedDate)}</h1>
@@ -99,7 +100,7 @@ export const DailyView: React.FC<DailyViewProps> = ({
             onClick={handleNextDay}
             title="Next day"
           >
-            ▶
+            <ChevronRight size={20} />
           </button>
         </div>
         <div className="header-actions">
@@ -111,7 +112,7 @@ export const DailyView: React.FC<DailyViewProps> = ({
             onClick={() => setIsSettingsOpen(true)}
             title="Notification settings"
           >
-            🔔
+            <Bell size={20} />
           </button>
         </div>
       </div>

@@ -1,4 +1,14 @@
 import React, { useMemo } from "react";
+import {
+  Calendar,
+  CheckCircle2,
+  Target,
+  Clock,
+  TrendingUp,
+  Flame,
+  Hourglass2,
+  Bell,
+} from "lucide-react";
 import { Event } from "../types";
 import { useStatistics } from "../hooks/useStatistics";
 import { StatCard } from "./StatCard";
@@ -47,7 +57,13 @@ export const StatisticsPanel: React.FC<StatisticsPanelProps> = ({ events }) => {
 
   return (
     <div className="statistics-panel">
-      <h2 className="statistics-panel__title">📊 Statistics Dashboard</h2>
+      <h2 className="statistics-panel__title">
+        <span
+          style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}
+        >
+          <TrendingUp size={24} /> Statistics Dashboard
+        </span>
+      </h2>
 
       {/* Overview Section */}
       <section className="statistics-section">
@@ -56,26 +72,26 @@ export const StatisticsPanel: React.FC<StatisticsPanelProps> = ({ events }) => {
           <StatCard
             label="Events Today"
             value={stats.totalEventsToday}
-            icon="📅"
+            icon={<Calendar size={20} />}
             color="primary"
           />
           <StatCard
             label="Completed"
             value={stats.completedEventsToday}
-            icon="✅"
+            icon={<CheckCircle2 size={20} />}
             color="success"
           />
           <StatCard
             label="Completion Rate"
             value={stats.completionRatePercent}
-            icon="🎯"
+            icon={<Target size={20} />}
             suffix="%"
             color={getCompletionColor(stats.completionRatePercent)}
           />
           <StatCard
             label="Time Allocated"
             value={formatTime(stats.totalTimeAllocatedToday)}
-            icon="⏱️"
+            icon={<Clock size={20} />}
             color="primary"
           />
         </div>
@@ -89,19 +105,19 @@ export const StatisticsPanel: React.FC<StatisticsPanelProps> = ({ events }) => {
             <StatCard
               label="Events Next 7 Days"
               value={stats.eventsNextSevenDays}
-              icon="🗓️"
+              icon={<Calendar size={20} />}
               color="primary"
             />
             <StatCard
               label="Busiest Day"
               value={`${stats.busiestDayThisWeek.day} (${stats.busiestDayThisWeek.count})`}
-              icon="🔥"
+              icon={<Flame size={20} />}
               color="accent"
             />
             <StatCard
               label="Avg Events/Day"
               value={stats.averageEventsPerDay}
-              icon="📈"
+              icon={<TrendingUp size={20} />}
               color="primary"
             />
           </div>
@@ -118,27 +134,36 @@ export const StatisticsPanel: React.FC<StatisticsPanelProps> = ({ events }) => {
           <StatCard
             label="Current Streak"
             value={stats.streak}
-            icon="🔥"
+            icon={<Flame size={20} />}
             suffix=" days"
             color={stats.streak > 0 ? "success" : "primary"}
           />
           <StatCard
             label="Avg Event Duration"
             value={formatTime(stats.averageEventDuration)}
-            icon="⏳"
+            icon={<Hourglass2 size={20} />}
             color="primary"
           />
           <StatCard
             label="Most Used Category"
             value=""
-            icon={stats.mostUsedColor.color === "#00ff88" ? "🟢" : "●"}
+            icon={
+              <div
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  borderRadius: "50%",
+                  backgroundColor: stats.mostUsedColor.color,
+                }}
+              />
+            }
             color="primary"
           />
           {stats.peakBusyHours.length > 0 && (
             <StatCard
               label="Peak Hours"
               value={stats.peakBusyHours.map((h) => `${h}:00`).join(", ")}
-              icon="⏰"
+              icon={<Clock size={20} />}
               color="warning"
             />
           )}

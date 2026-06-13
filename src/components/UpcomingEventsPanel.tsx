@@ -1,6 +1,11 @@
 import React from "react";
+import { Bell } from "lucide-react";
 import { Event } from "../types";
-import { useUpcomingEvents, UpcomingDaysAhead, UpcomingSortMode } from "../hooks/useUpcomingEvents";
+import {
+  useUpcomingEvents,
+  UpcomingDaysAhead,
+  UpcomingSortMode,
+} from "../hooks/useUpcomingEvents";
 import { UpcomingEventItem } from "./UpcomingEventItem";
 import "../styles/UpcomingEventsPanel.css";
 
@@ -64,14 +69,26 @@ export const UpcomingEventsPanel: React.FC<UpcomingEventsPanelProps> = ({
     <section className="upcoming-events-panel">
       <div className="upcoming-events-panel__header">
         <div>
-          <h2 className="upcoming-events-panel__title">🔔 Upcoming Events</h2>
+          <h2 className="upcoming-events-panel__title">
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <Bell size={24} /> Upcoming Events
+            </span>
+          </h2>
           <p className="upcoming-events-panel__subtitle">
             Events due in the next {daysAhead} days
           </p>
         </div>
 
         <div className="upcoming-events-panel__summary">
-          <span className="upcoming-events-panel__count">{upcomingEvents.length} items</span>
+          <span className="upcoming-events-panel__count">
+            {upcomingEvents.length} items
+          </span>
         </div>
       </div>
 

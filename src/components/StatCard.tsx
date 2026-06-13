@@ -4,7 +4,7 @@ import "../styles/StatisticsPanel.css";
 export interface StatCardProps {
   label: string;
   value: string | number;
-  icon?: string;
+  icon?: string | React.ReactNode;
   suffix?: string;
   color?: "success" | "primary" | "warning" | "accent";
   onClick?: () => void;

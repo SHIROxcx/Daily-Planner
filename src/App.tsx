@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BarChart3, Calendar, ListTodo, Settings } from "lucide-react";
 import { DailyView } from "./components/DailyView";
 import { CalendarView } from "./components/CalendarView";
 import { StatisticsPanel } from "./components/StatisticsPanel";
@@ -78,28 +79,28 @@ function App() {
             onClick={() => setCurrentView("dashboard")}
             title="Dashboard View"
           >
-            📊 Dashboard
+            <BarChart3 size={20} /> Dashboard
           </button>
           <button
             className={`view-btn ${currentView === "calendar" ? "active" : ""}`}
             onClick={() => setCurrentView("calendar")}
             title="Calendar View"
           >
-            📅 Calendar
+            <Calendar size={20} /> Calendar
           </button>
           <button
             className={`view-btn ${currentView === "daily" ? "active" : ""}`}
             onClick={() => setCurrentView("daily")}
             title="Daily View"
           >
-            📋 Daily
+            <ListTodo size={20} /> Daily
           </button>
           <button
             className="view-btn settings-btn"
             onClick={() => setShowSettings(true)}
             title="Notification Settings"
           >
-            ⚙️
+            <Settings size={20} />
           </button>
         </div>
       </div>
@@ -126,7 +127,16 @@ function App() {
               className="back-to-calendar-btn"
               onClick={handleBackToCalendar}
             >
-              ◀ Back to Calendar
+              <span
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                }}
+              >
+                <ChevronLeft size={20} style={{ display: "inline" }} /> Back to
+                Calendar
+              </span>
             </button>
             <DailyView
               events={

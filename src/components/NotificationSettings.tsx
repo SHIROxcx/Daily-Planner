@@ -42,7 +42,7 @@ export const NotificationSettings: React.FC<NotificationSettingsProps> = ({
     } else {
       const success = await enableNotifications();
       if (success) {
-        addNotification("System notifications enabled! 🔔", "success", 3000);
+        addNotification("System notifications enabled!", "success", 3000);
       } else {
         addNotification(
           "Failed to enable notifications or permission denied",

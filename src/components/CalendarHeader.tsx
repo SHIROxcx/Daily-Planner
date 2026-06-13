@@ -1,4 +1,5 @@
 import React from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface CalendarHeaderProps {
   displayMonth: string;
@@ -21,7 +22,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
         aria-label="Previous month"
         title="Previous month"
       >
-        ◀ Prev
+        <ChevronLeft size={18} style={{ display: "inline" }} /> Prev
       </button>
 
       <div className="calendar-title">
@@ -37,7 +38,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
         aria-label="Next month"
         title="Next month"
       >
-        Next ▶
+        Next <ChevronRight size={18} style={{ display: "inline" }} />
       </button>
     </div>
   );
