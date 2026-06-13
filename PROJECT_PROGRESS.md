@@ -14,6 +14,17 @@
 
 ---
 
+## 👥 TEAM ASSIGNMENTS
+
+| Person  | Role            | Focus                                                    |
+| ------- | --------------- | -------------------------------------------------------- |
+| **Jom** | Logic & Data    | Hooks, state management, data calculation, backend logic |
+| **Lia** | UI & Components | Visual components, layout, styling, animations           |
+
+> ⚠️ **Rule:** Each phase is split so Jom and Lia work on **different files**. Never edit the same file at the same time. Always `git pull` before starting work.
+
+---
+
 ## ✅ COMPLETED TASKS
 
 ### Environment & Planning
@@ -105,6 +116,33 @@
 
 **Overview:** Show summary stats about user's productivity & schedule
 
+**🔀 Branch:** `feature/statistics-dashboard`
+
+#### 👤 Jom — Logic & Hook
+
+> Files: `src/hooks/useStatistics.ts`
+
+- [ ] Build `useStatistics` hook — calculate all stats from events array
+  - Total events today & completed today
+  - Events scheduled for upcoming 7 days
+  - Completion rate (%)
+  - Busiest day this week
+  - Average events per day
+  - Most used color/category
+  - Streak (consecutive days with events)
+  - Total time allocated today
+  - Average event duration
+  - Peak busy hours
+
+#### 👤 Lia — UI Components
+
+> Files: `src/components/StatisticsPanel.tsx`, `src/components/StatCard.tsx`, `src/components/MiniChart.tsx`, `src/components/StatisticsPanel.css`
+
+- [ ] Build `StatCard` — individual stat display card with cyberpunk styling
+- [ ] Build `MiniChart` — simple bar/pie charts using existing data
+- [ ] Build `StatisticsPanel` — main container wiring up Jom's hook to the cards
+- [ ] Style all components with dark cyberpunk theme
+
 **Metrics to Display:**
 
 - **Overview Section (Top):**
@@ -124,18 +162,35 @@
   - Average event duration
   - Peak busy hours
 
-**Components to Build:**
-
-- `StatisticsPanel` - Main stats container
-- `StatCard` - Individual stat display
-- `MiniChart` - Simple bar/pie charts
-- `useStatistics` hook - Calculate stats from events
-
 ---
 
 ### Phase 3.3: Upcoming Events Reminders Panel ⏳ TODO
 
 **Overview:** Always-visible panel showing important upcoming events (next 3-7 days)
+
+**🔀 Branch:** `feature/upcoming-events-panel`
+
+#### 👤 Jom — Logic & Hook
+
+> Files: `src/hooks/useUpcomingEvents.ts`
+
+- [ ] Build `useUpcomingEvents` hook
+  - Filter events for next 3, 5, or 7 days (configurable)
+  - Sort by date / priority / time of day
+  - Compute countdown ("in 2 days", "in 5 hours")
+  - Expose quick actions: mark important, set custom reminder
+
+#### 👤 Lia — UI Components
+
+> Files: `src/components/UpcomingEventsPanel.tsx`, `src/components/UpcomingEventItem.tsx`, `src/components/UpcomingEventsPanel.css`
+
+- [ ] Build `UpcomingEventItem` — individual event row with:
+  - Event title, date & time
+  - Days until countdown badge
+  - Color/category/importance flag indicators
+  - Quick action buttons (mark important, edit, set reminder)
+- [ ] Build `UpcomingEventsPanel` — main panel wiring up Jom's hook
+- [ ] Style with cyberpunk theme, matching existing notification styles
 
 **Features:**
 
@@ -154,17 +209,34 @@
   - Edit event
   - Set custom reminder
 
-**Components to Build:**
-
-- `UpcomingEventsPanel` - Main panel
-- `UpcomingEventItem` - Individual upcoming event
-- `useUpcomingEvents` hook - Filter & sort upcoming events
-
 ---
 
 ### Phase 3.4: Unified Dashboard Layout ⏳ TODO
 
 **Overview:** Single-page dashboard combining Calendar + Stats + Upcoming
+
+**🔀 Branch:** `feature/unified-dashboard-layout`
+
+> ⚠️ **Do Phase 3.4 together** — this phase wires everything up. Coordinate before starting. Jom handles routing/state, Lia handles the layout shell.
+
+#### 👤 Jom — Routing & State Wiring
+
+> Files: `src/App.tsx`, `src/hooks/` (updates)
+
+- [ ] Add dashboard route to `App.tsx`
+- [ ] Wire up `useCalendar`, `useStatistics`, `useUpcomingEvents` into one shared state layer
+- [ ] Handle responsive breakpoint logic (desktop / tablet / mobile)
+- [ ] Manage view transitions and navigation flow
+
+#### 👤 Lia — Layout Shell & Responsive Design
+
+> Files: `src/components/DashboardLayout.tsx`, `src/components/DashboardLayout.css`
+
+- [ ] Build `DashboardLayout` — 3-column wrapper component
+- [ ] Implement CSS Grid responsive layout (desktop 3-col → tablet 2-col → mobile stacked)
+- [ ] Build Header bar (Logo, View Toggle, Settings button)
+- [ ] Add smooth transitions between Dashboard ↔ Daily View
+- [ ] Mobile bottom navigation bar (📅 Calendar | 📊 Stats | 🔔 Upcoming | ⚙️ Settings)
 
 **Proposed Layout:**
 
@@ -448,7 +520,7 @@
 - ✅ Search Bar
 - ✅ Progress Ring (completion %)
 - ✅ Time Allocation Bar
-- ✅ Streak Counte!r
+- ✅ Streak Counte! r
 - ✅ Status Indicators on events
 - ✅ Quick Actions (snooze, complete, edit)
 - ✅ Filter Pills by category
@@ -484,30 +556,33 @@
 - Sound alerts
 - Snooze functionality
 
-### Phase 3: Recurring Events
+### Phase 4: Recurring Events
 
-- Daily, weekly, monthly recurrence
-- Edit single instance vs. series
+**🔀 Branch:** `feature/recurring-events`
 
-### Phase 4: Monthly View
+- 👤 **Jom** — recurrence logic, data model (daily/weekly/monthly), edit single vs. series
+- 👤 **Lia** — recurrence UI in EventModal (repeat picker, series badge on EventBlock)
 
-- Calendar grid with month navigation
-- Event indicators
-- Heat map visualization
+### Phase 5: Monthly View
 
-### Phase 5: Yearly View
+**🔀 Branch:** `feature/monthly-view`
 
-- 12-month overview
-- Annual statistics
-- Activity heat map
+- 👤 **Jom** — heat map data calculation, monthly stats hook
+- 👤 **Lia** — calendar grid UI, heat map color rendering, event indicators
 
-### Phase 6: Polish & Settings
+### Phase 6: Yearly View
 
-- Settings panel
-- Theme customization
-- Keyboard shortcuts
-- System tray integration
-- Export/import data
+**🔀 Branch:** `feature/yearly-view`
+
+- 👤 **Jom** — annual statistics hook, activity data aggregation
+- 👤 **Lia** — 12-month overview grid, activity heat map component
+
+### Phase 7: Polish & Settings
+
+**🔀 Branch:** `feature/polish-and-settings`
+
+- 👤 **Jom** — keyboard shortcuts logic, export/import data (CSV, JSON, iCal), settings persistence
+- 👤 **Lia** — Settings panel UI, theme customization (Dark/Light toggle), help tooltips
 
 ---
 
@@ -548,21 +623,21 @@ Web App daily planner/
 
 ## 📊 PROGRESS SUMMARY
 
-| Phase                            | Status         | Completion |
-| -------------------------------- | -------------- | ---------- |
-| Phase 1 - Core Components        | ✅ Complete    | 100%       |
-| Phase 2.1 - In-App Popups        | ✅ Complete    | 100%       |
-| Phase 2.2 - System Notifications | ✅ Complete    | 100%       |
-| Phase 2.3 - Sound Alerts         | ⏳ Todo        | 0%         |
-| Phase 2.4 - Snooze               | ⏳ Todo        | 0%         |
-| **Phase 3.1 - Calendar View**    | **⏳ Todo**    | **0%**     |
-| **Phase 3.2 - Statistics**       | **⏳ Todo**    | **0%**     |
-| **Phase 3.3 - Upcoming Events**  | **⏳ Todo**    | **0%**     |
-| **Phase 3.4 - Unified Layout**   | **⏳ Todo**    | **0%**     |
-| Phase 4 - Recurring Events       | 🔴 Not Started | 0%         |
-| Phase 5 - Monthly View           | 🔴 Not Started | 0%         |
-| Phase 6 - Yearly View            | 🔴 Not Started | 0%         |
-| Phase 7 - Polish & Settings      | 🔴 Not Started | 0%         |
+| Phase                            | Status         | Jom                        | Lia                             | Completion |
+| -------------------------------- | -------------- | -------------------------- | ------------------------------- | ---------- |
+| Phase 1 - Core Components        | ✅ Complete    | —                          | —                               | 100%       |
+| Phase 2.1 - In-App Popups        | ✅ Complete    | —                          | —                               | 100%       |
+| Phase 2.2 - System Notifications | ✅ Complete    | —                          | —                               | 100%       |
+| Phase 2.3 - Sound Alerts         | ✅ Complete    | —                          | —                               | 100%       |
+| Phase 2.4 - Snooze               | ✅ Complete    | —                          | —                               | 100%       |
+| Phase 3.1 - Calendar View        | ✅ Complete    | —                          | —                               | 100%       |
+| **Phase 3.2 - Statistics**       | **⏳ Todo**    | `useStatistics` hook       | StatCard, MiniChart, Panel UI   | **0%**     |
+| **Phase 3.3 - Upcoming Events**  | **⏳ Todo**    | `useUpcomingEvents` hook   | UpcomingEventItem, Panel UI     | **0%**     |
+| **Phase 3.4 - Unified Layout**   | **⏳ Todo**    | Routing & state wiring     | DashboardLayout, Header, Mobile | **0%**     |
+| Phase 4 - Recurring Events       | 🔴 Not Started | Recurrence logic & model   | Repeat picker UI, series badge  | 0%         |
+| Phase 5 - Monthly View           | 🔴 Not Started | Heat map data & stats hook | Calendar grid & heat map UI     | 0%         |
+| Phase 6 - Yearly View            | 🔴 Not Started | Annual stats aggregation   | 12-month grid & heat map        | 0%         |
+| Phase 7 - Polish & Settings      | 🔴 Not Started | Shortcuts, export/import   | Settings panel, theme toggle    | 0%         |
 
 ---
 
