@@ -31,7 +31,7 @@ function App() {
     console.log("=== APP MOUNTED - FORCING CALENDAR VIEW ===");
     localStorage.clear();
     setCurrentView("calendar");
-    setShowSettings(true);
+    setShowSettings(false);
   }, []);
 
   if (isLoading) {
